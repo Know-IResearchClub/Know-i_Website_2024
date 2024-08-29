@@ -1,131 +1,112 @@
-import React, { useRef } from 'react';
-import { motion, useTransform, useScroll } from 'framer-motion';
-import styles from './Events.module.css'; 
-import messipic from './meesi.png'
-import president from './office_bearers/IMG_0012 2 - RAAGA PRIYA J K.jpg'
-import vp from './office_bearers/IMG_7187 - 014 GAYATHRI MOHANRAJU AI&DS.jpeg'
-import research_head from './office_bearers/IMG_20240827_203548 - 038 SAHANA S.jpg'
-import Treasurer from './office_bearers/me - ARAVINDHAN S S CSE.jpeg'
-import secretary from './office_bearers/IMG_20240108_181250 - PRAJITH PAAVAN K AID&S.jpg'
-import tech_lead from './office_bearers/Photo - ARCHANA G CSE.jpg'
-import planing_head from './office_bearers/20240426_175055(0) - ARUNIMA M AI&DS.jpg'
-// import chief_marketting_off from './office_bearers/IMG_20240108_181250 - PRAJITH PAAVAN K AID&S.jpg'
-// import chief_of_strategy from './office_bearers/IMG_20240108_181250 - PRAJITH PAAVAN K AID&S.jpg'
-// import web_lead from './office_bearers/IMG_20240108_181250 - PRAJITH PAAVAN K AID&S.jpg'
+import React from 'react';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import  styles from './Events.module.css';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-coverflow';
+
+import {EffectCoverflow, Pagination, Navigation} from 'swiper/modules';
+
+import slider_image_1 from './images/image1.png';
+import slider_image_2 from './images/image2.png';
+import slider_image_3 from './images/image3.png';
+import slider_image_4 from './images/image4.png';
+import slider_image_5 from './images/image5.png';
+import slider_image_6 from './images/image6.png';
+// import slider_image_7 from './assets/images/image7.png';
 
 export const Events = () => {
+
   return (
-    <div id='teams' className={styles.container}>
-
-      <HorizontalScrollCarousel />
-
+    <div className={styles.container}>
+      <div className={styles.containertitle}>EVENTS</div>
+      <Swiper
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={2}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2.5,
+        }}
+        loop={true}
+        pagination={{ el: '.swiper-pagination', clickable: true }}
+        navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+          clickable: true,
+        }}
+        modules={[EffectCoverflow, Pagination, Navigation]}
+        className="swiper_container"
+      >
+        <SwiperSlide>
+          <div className={styles.eventcard}>
+            <img src={slider_image_1} alt="slide_image" className="image-size"/>
+            <div className={styles.eventdesc}>
+              <div>Analytics Showdown</div>
+              <br />
+              An 2 day immersive data Analytics event featuring complex data set to create compelling visualizations and uncover meaningful insights
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={styles.eventcard}>
+            <img src={slider_image_2} alt="slide_image" className="image-size" />
+            <div className={styles.eventdesc}>
+              <div>Fresher stories</div>
+              <br />
+              Freshers Stories," a captivating event tailored for newcomers, unfolded in three stimulating rounds. The "Connections" round, blending accuracy and speed, had participants guess images, while "Picture Yourself" assessed problem-solving through brief pitches. In the final round, "Block and Tackle," articulation on assigned topics was key. The winners, receiving certificates from Dr. R. Anitha, Head of the Department, who commended their exceptional performance.
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={styles.eventcard}>
+            <img src={slider_image_3} alt="slide_image" className={styles.imagesize} />
+            <div className={styles.eventdesc}>
+              <div>Developer Dungeons</div>
+              <br />
+              A fullstack development contest organized in partnership with TakeMyTickets
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={styles.eventcard}>
+            <img src={slider_image_4} alt="slide_image" className="image-size" />
+            <div  className={styles.eventdesc}>
+              <div>Data War Tech</div>
+              <br />
+              Create a prognostic model for precision
+              In this dynamic one-day event, each participating team of three will be assigned a specific topic or domain, challenging their collaborative skills and machine learning expertise.
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={styles.eventcard}>
+            <img src={slider_image_5} alt="slide_image" className="image-size" />
+            <div className={styles.eventdesc}>
+              <div>Honest Engineering Placements</div>
+              <br />
+              A truthful converse for seniors to juniors about their placement journey
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={styles.eventcard}>
+            <img src={slider_image_6} alt="slide_image" className="image-size" />
+            <div className={styles.eventdesc}>
+              <div >Venture Spark</div>
+              <br />
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla ab vero est cumque numquam minima delectus, molestias fugit. Asperiores soluta dolorem accusamus, sunt porro reiciendis dicta excepturi sint corporis a.
+            </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+      {/* <hr styles={}></hr> */}
     </div>
-  );
-};
+  )
+}
 
-const HorizontalScrollCarousel = () => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({target: targetRef,});
-
-  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-45%']);
-
-  return (
-    <section ref={targetRef} className={styles.carouselSection}>
-      <div className={styles.titleContainer}>
-          <h2 className={styles.title}>Team</h2>
-        </div>
-      <div className={styles.stickyContainer}>
-        
-      
-      
-        
-        <motion.div style={{ x }} className={styles.image}>
-          {cards.map((card) => (
-            <Card card={card} key={card.id} />
-          ))}
-          {/* <a href="#" className={styles.seeAllLink}>See all...</a> */}
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-const Card = ({ card }) => {
-  return (
-    <div className={styles.card} key={card.id}>
-      <img src={card.url} alt={card.title} className={styles.cardImage} />
-
-      <div className={styles.cardContent}>
-    <p className={styles.cardTitle}>{card.title}</p>
-    <p className={styles.cardrole}>{card.role}</p>
-  </div>
-
-
-    </div>
-  );
-};
-
-const cards = [
-  {
-    title: 'Raaga Priya',
-    role:'President',
-    url: president,
-    
-    id: 1,
-  },
-  {
-    url: vp,
-    title: 'Gayathri Mohanraju',
-    role:'Vice President',
-    id: 2,
-  },
-  {
-    url: research_head,
-    title:'Sahana S',
-    role: 'Research Head',
-    id: 3,
-  },
-  {
-    url: Treasurer,
-    title:'Aravindhan S',
-    role: 'Treasurer',
-    id: 4,
-  },
-  {
-    url: secretary,
-    title:'Prajith Paavan',
-    role: 'Secretary',
-    id: 5,
-  },
-  {
-    url: tech_lead,
-    title:'Archana G',
-    role: 'Tech Lead',
-    id: 6,
-  },
-  {
-    url: planing_head,
-    title:'Arunima',
-    role: 'Planning lead',
-    id: 7,
-  },
-  // {
-  //   url: messipic,
-  //   title:'Arunima',
-  //   role: 'Planning lead',
-  //   id: 8,
-  // },
-  // {
-  //   url: messipic,
-  //   title:'Arunima',
-  //   role: 'Planning lead',
-  //   id: 9,
-  // },
-  // {
-  //   url: messipic,
-  //   title:'Arunima',
-  //   role: 'Planning lead',
-  //   id: 10,
-  // }
-
-];

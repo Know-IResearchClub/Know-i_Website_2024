@@ -7,8 +7,8 @@ html {
 .App{
     background-color: var(--color-bg);
     width: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    max-height: max-content;
     display: flex;
     flex-direction: column;
-    text-shadow: 0px 0px 6.2px var(--color-text);
 }

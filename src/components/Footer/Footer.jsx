@@ -14,13 +14,13 @@ export const Footer = () => {
     <h2>KNOW-I</h2>
     <p>Know deeply, innovate intelligently.</p>
     <div className={styles.social_icons}>
-      <a href='#'><FontAwesomeIcon icon={faLinkedin} className={styles.linkedin}/></a>
-      <a href='#'><FontAwesomeIcon icon={faInstagram} className={styles.instagram}/></a>
-      <a href='#'><FontAwesomeIcon icon={faYoutube}className={styles.youtube}/></a>
+      <a href='https://www.linkedin.com/company/know-i-club/'><FontAwesomeIcon icon={faLinkedin} className={styles.linkedin}/></a>
+      <a href='https://www.instagram.com/know_i_club?igshid=ZGNjOWZkYTE3MQ=='><FontAwesomeIcon icon={faInstagram} className={styles.instagram}/></a>
+      <a href='https://www.youtube.com/@KNOW-IRESEARCHCLUB'><FontAwesomeIcon icon={faYoutube}className={styles.youtube}/></a>
 
     </div>
     
-    <p>&copy; 2023 KNOW-I. All rights reserved.</p>
+    <p>&copy; 2024 KNOW-I. All rights reserved.</p>
     </footer>
   )
 }
